@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="am">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,33 +6,66 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;color:#fff}.hero{ height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1492724441997-5dc865305da7'); background-size:cover; background-position:center; }
+body{font-family:'Poppins',sans-serif;background:#0f172a;color:#fff}/* HERO */ .hero{ height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1492724441997-5dc865305da7'); background-size:cover; } .hero h1{font-size:45px} .hero p{margin-top:10px;font-size:20px}
 
-.hero h1{font-size:40px;font-weight:700} .hero p{margin-top:10px;font-size:18px}
+.lang{position:absolute;top:20px;right:20px} .lang button{padding:5px 10px;margin-left:5px;border:none;border-radius:5px}
 
-.tiktok{ margin-top:20px; font-size:16px; color:#22c55e; }
+.btn{margin-top:20px;padding:10px 20px;background:#22c55e;border:none;border-radius:8px;cursor:pointer}
 
-.section{padding:40px 20px;background:#0f172a}
+.section{padding:40px 20px}
 
-.gallery-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; margin-top:20px }
+/* PACKAGES */ .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px} .card{background:#1e293b;padding:20px;border-radius:12px} .card h3{margin-bottom:10px} .card ul{font-size:14px;margin-left:15px} .price{color:#22c55e;margin-top:10px}
 
-.gallery-grid img{ width:100%; height:200px; object-fit:cover; border-radius:10px }
+/* GALLERY */ .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px} .gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px}
 
-video{ width:100%; border-radius:10px; margin-top:20px }
+video{width:100%;max-width:700px;margin-top:20px;border-radius:10px}
 
-footer{text-align:center;padding:20px;background:#111}
-
-button{background:#22c55e;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;margin-top:20px} </style>
+footer{text-align:center;padding:20px;background:#111} </style>
 
 </head>
-<body><div class="hero">
-<h1>ኩሩ ስቱዲዮ</h1>
-<p>እንኳን ደና መጡ</p>
-<div class="tiktok">@kuruphotography</div>
-<button onclick="contact()">Book Now</button>
-</div><div class="section">
-<h2 style="text-align:center">📸 Gallery</h2>
-<div class="gallery-grid">
+<body><div class="lang">
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('am')">AM</button>
+</div><div class="hero">
+<h1 id="title">KURU Studio</h1>
+<p id="welcome">Welcome</p>
+<p>@kuruphotography</p>
+<button class="btn" onclick="contact()" id="btn">Book Now</button>
+</div><!-- PACKAGES --><div class="section">
+<h2 id="pkgTitle">Packages</h2>
+<div class="packages"><div class="card">
+<h3>Mini 1</h3>
+<ul>
+<li>30 Photos</li>
+<li>Video</li>
+<li>Family Photo</li>
+</ul>
+<p class="price">3500 Birr</p>
+</div><div class="card">
+<h3>Mini 2</h3>
+<ul>
+<li>40 Photos</li>
+<li>Cake</li>
+</ul>
+<p class="price">5900 Birr</p>
+</div><div class="card">
+<h3>Mini 3</h3>
+<ul>
+<li>50 Photos</li>
+<li>Decor</li>
+</ul>
+<p class="price">7500 Birr</p>
+</div><div class="card">
+<h3>Mini 4</h3>
+<ul>
+<li>60 Photos</li>
+<li>Prints</li>
+</ul>
+<p class="price">9500 Birr</p>
+</div></div>
+</div><!-- GALLERY --><div class="section">
+<h2 id="galleryTitle">Gallery</h2>
+<div class="gallery">
 <img src="https://images.unsplash.com/photo-1529634899091-7c6c8f1b2a0f">
 <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
 <img src="https://images.unsplash.com/photo-1504198458649-3128b932f49b">
@@ -44,5 +77,18 @@ button{background:#22c55e;border:none;padding:10px 20px;border-radius:8px;cursor
 <p>📞 +251969060708</p>
 </footer><script>
 function contact(){window.open("https://wa.me/251969060708","_blank")}
+
+const text={
+ en:{title:"KURU Studio",welcome:"Welcome",btn:"Book Now",pkg:"Packages",gallery:"Gallery"},
+ am:{title:"ኩሩ ስቱዲዮ",welcome:"እንኳን ደና መጡ",btn:"አሁን ያስያዙ",pkg:"ፓኬጆች",gallery:"ስራዎቻችን"}
+}
+
+function setLang(lang){
+ document.getElementById('title').innerText=text[lang].title;
+ document.getElementById('welcome').innerText=text[lang].welcome;
+ document.getElementById('btn').innerText=text[lang].btn;
+ document.getElementById('pkgTitle').innerText=text[lang].pkg;
+ document.getElementById('galleryTitle').innerText=text[lang].gallery;
+}
 </script></body>
 </html>
