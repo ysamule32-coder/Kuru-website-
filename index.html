@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KURU Event Solution</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#0f172a;color:#fff}
+header{padding:30px;text-align:center;background:linear-gradient(135deg,#111,#1e293b)}
+header img{width:80px;margin-bottom:10px}
+.lang-switch{position:absolute;top:15px;right:15px}
+.lang-switch button{margin-left:5px;padding:5px 10px;border:none;border-radius:5px;cursor:pointer}
+.container{padding:20px;max-width:1100px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.package{background:#1e293b;padding:20px;border-radius:15px;transition:0.3s}
+.package:hover{transform:translateY(-5px)}
+ul{margin:10px 0 15px 15px;font-size:14px}
+.price{color:#22c55e;font-size:20px;font-weight:bold}
+button{background:#22c55e;color:#000;border:none;padding:10px;border-radius:8px;cursor:pointer;width:100%}
+.gallery{margin-top:40px}
+.gallery h2{text-align:center;margin-bottom:20px}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+.gallery-grid img{width:100%;border-radius:10px;height:200px;object-fit:cover}
+footer{text-align:center;padding:20px;background:#111;margin-top:30px}
+</style>
+</head>
+<body><div class="lang-switch">
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('am')">AM</button>
+</div><header>
+<img src="logo.png">
+<h1 id="title">KURU Event Solution</h1>
+<p id="subtitle">Decor • Catering • Production</p>
+</header><div class="container">
+<div class="grid"><div class="package">
+<h2 id="p1">Mini Package 1</h2>
+<ul>
+<li id="p1_1">30 Photos</li>
+<li id="p1_2">Video</li>
+<li id="p1_3">Family Photo</li>
+</ul>
+<p class="price">3500 Birr</p>
+<button id="btn">Book Now</button>
+</div><div class="package">
+<h2 id="p2">Mini Package 2</h2>
+<ul>
+<li id="p2_1">40 Photos</li>
+<li id="p2_2">Cake</li>
+</ul>
+<p class="price">5900 Birr</p>
+<button id="btn2">Book Now</button>
+</div><div class="package">
+<h2 id="p3">Mini Package 3</h2>
+<ul>
+<li id="p3_1">50 Photos</li>
+<li id="p3_2">Decor</li>
+</ul>
+<p class="price">7500 Birr</p>
+<button id="btn3">Book Now</button>
+</div><div class="package">
+<h2 id="p4">Mini Package 4</h2>
+<ul>
+<li id="p4_1">60 Photos</li>
+<li id="p4_2">Prints</li>
+</ul>
+<p class="price">9500 Birr</p>
+<button id="btn4">Book Now</button>
+</div></div><div class="gallery">
+<h2 id="gallery">Our Work</h2>
+<div class="gallery-grid">
+<img src="https://images.unsplash.com/photo-1529634899091-7c6c8f1b2a0f">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+<img src="https://images.unsplash.com/photo-1504198458649-3128b932f49b">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+</div>
+</div></div><footer>
+<p id="contact">📞 +251969060708</p>
+</footer><script>
+function contact(){window.open("https://wa.me/251969060708","_blank")}
+
+const texts={
+ en:{
+  title:"KURU Event Solution",
+  subtitle:"Decor • Catering • Production",
+  p1:"Mini Package 1",
+  p2:"Mini Package 2",
+  p3:"Mini Package 3",
+  p4:"Mini Package 4",
+  btn:"Book Now",
+  gallery:"Our Work"
+ },
+ am:{
+  title:"ኩሩ Event Solution",
+  subtitle:"ዲኮር • ካተሪንግ • ፕሮዳክሽን",
+  p1:"ሚኒ ፓኬጅ 1",
+  p2:"ሚኒ ፓኬጅ 2",
+  p3:"ሚኒ ፓኬጅ 3",
+  p4:"ሚኒ ፓኬጅ 4",
+  btn:"አሁን ያስያዙ",
+  gallery:"ስራዎቻችን"
+ }
+}
+
+function setLang(lang){
+ document.getElementById('title').innerText=texts[lang].title;
+ document.getElementById('subtitle').innerText=texts[lang].subtitle;
+ document.getElementById('p1').innerText=texts[lang].p1;
+ document.getElementById('p2').innerText=texts[lang].p2;
+ document.getElementById('p3').innerText=texts[lang].p3;
+ document.getElementById('p4').innerText=texts[lang].p4;
+ document.getElementById('btn').innerText=texts[lang].btn;
+ document.getElementById('btn2').innerText=texts[lang].btn;
+ document.getElementById('btn3').innerText=texts[lang].btn;
+ document.getElementById('btn4').innerText=texts[lang].btn;
+ document.getElementById('gallery').innerText=texts[lang].gallery;
+}
+</script></body>
+</html>
