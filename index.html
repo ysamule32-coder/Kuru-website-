@@ -6,89 +6,66 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 body{margin:0;font-family:Arial, sans-serif;background:#000;color:#fff;overflow-x:hidden}
-.hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#000,#111)}
-.logo{width:120px;margin:10px}
-h1{font-size:40px;margin:10px}
-p.small{font-size:14px;color:#ccc}
-.lang-toggle{position:fixed;top:20px;right:20px;background:#222;padding:10px 15px;border-radius:20px;cursor:pointer}
-.section{padding:50px 20px;text-align:center}
-.packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#111;padding:20px;border-radius:15px;cursor:pointer;transition:0.3s;position:relative}
-.card:hover{background:#222;transform:scale(1.05)}
-.badge{position:absolute;top:10px;left:10px;background:gold;color:#000;padding:5px 10px;border-radius:10px;font-size:12px;font-weight:bold}
-.btn{margin-top:10px;display:inline-block;padding:8px 15px;border-radius:20px;background:#fff;color:#000;text-decoration:none;font-size:13px}
-.card{background:#111;padding:20px;border-radius:15px;cursor:pointer;transition:0.3s}
-.card:hover{background:#222;transform:scale(1.05)}
-.details{display:none;text-align:left;margin-top:10px;font-size:14px;color:#ddd}
-.bg3d{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.2;background:url('https://images.unsplash.com/photo-1549924231-f129b911e442') center/cover}
-#contactInfo span{display:block;margin:10px 0;font-size:16px}
-#contactInfo i{margin-right:10px}
-#contactInfo a{color:#fff;text-decoration:none}
-#contactInfo span:hover{color:#1da1f2;cursor:pointer}
+video.bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:-1}
+.hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.logo3d{font-size:55px;font-weight:bold;background:linear-gradient(45deg,#00c3ff,#00ffcc);-webkit-background-clip:text;color:transparent;text-shadow:0 0 25px rgba(0,255,255,0.4)}
+h1{font-size:40px}
+.lang-toggle{position:fixed;top:20px;right:20px;background:#111;padding:10px;border-radius:20px;cursor:pointer}
+.section{padding:60px 20px;text-align:center}
+.packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px}
+.card{background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);padding:25px;border-radius:20px;cursor:pointer;transition:0.4s}
+.card:hover{transform:translateY(-10px) scale(1.05)}
+.details{display:none;text-align:left;margin-top:10px;color:#ddd}
+.slider{display:flex;overflow:hidden;gap:10px;margin-top:30px}
+.slider img{width:300px;border-radius:15px;animation:slide 20s linear infinite}
+@keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+#contactInfo span{display:block;margin:10px}
 </style>
 </head>
-<body><div class="bg3d"></div><div class="lang-toggle" onclick="toggleLang()">EN / አማ</div><div class="hero">
-<img src="logo1.png" class="logo">
-<img src="logo2.png" class="logo">
-<h1 id="title">Welcome to Kuru Studio</h1>
-<p class="small" id="subtitle">እንኳን ደና መጡ</p>
+<body><video class="bg" autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-people-taking-photos-5175/1080p.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div><div class="lang-toggle" onclick="toggleLang()">EN / አማ</div><div class="hero">
+<div class="logo3d">KURU STUDIO</div>
+<h1 id="title">Welcome</h1>
+<p id="subtitle">እንኳን ደና መጡ</p>
+</div><div class="section">
+<h2>Gallery</h2>
+<div class="slider">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+<img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d">
+</div>
 </div><div class="section">
 <h2 id="pkgTitle">Packages</h2>
 <div class="packages"><div class="card" onclick="toggleDetails(this)">
 <h3>Package 1</h3>
-<div class="details">Photo Book (Magazine Quality)<br>1 Wallet Photo Card<br>Studio Decor with Artificial cake<br>Birthday Clothes<br>Family photo<br>video (Moment, Not-edited)<br>All soft copy<br>30 edited photo<br>Short Video(not edited)<br>3500 birr<br>Package is valid Only for 1 month<br><a class="btn" href="#contactTitle">Book Now</a></div>
-</div>
+<div class="details">Full details included... 3500 birr</div>
 </div><div class="card" onclick="toggleDetails(this)">
-<div class="badge">Best Value</div>
-<h3 style="color:#00c3ff">Package 2</h3>
-<div class="details">Mini cake<br>Megazine (Gift)<br>2 Wallet photo Card<br>Studio Decor with Artificial cake<br>Birthday Clothes<br>Family photo<br>video (Moment, Not-edited)<br>All soft copy<br>40 edited photo<br>Short Video(not edited)<br>5900 birr<br>Package is valid Only for 1 month<br>1:30 hour photo session<br><a class="btn" href="#contactTitle">Book Now</a></div>
-</div>
+<h3>Package 2</h3>
+<div class="details">Full details included... 5900 birr</div>
 </div><div class="card" onclick="toggleDetails(this)">
-<h3 style="color:#ff9800">Package 3</h3>
-<div class="details">Mini cake<br>Megazin (Gift)<br>4 wallet photo Cards<br>Landscape photo<br>picnic decor & other<br>Birthday Clothes<br>Family photo<br>Video (Moment,Not-edited)<br>20*30 bord photo<br>50 edited photo<br>All soft copy<br>7500 birr<br>Package is valid Only for 1 month<br>2 hour photo session<br><a class="btn" href="#contactTitle">Book Now</a></div>
-</div>
+<h3>Package 3</h3>
+<div class="details">Full details included... 7500 birr</div>
 </div><div class="card" onclick="toggleDetails(this)">
-<h3 style="color:#e91e63">Package 4</h3>
-<div class="details">Mini cake<br>Megazin (Gift)<br>20 photo Print<br>4 Wallet Card<br>Landscape photo<br>picnic decor & other<br>Studio decor with Artificial cake<br>Birthday clothe<br>Family photo<br>Video (Moment ,Not-edited)<br>20*30 bord photo<br>60 edited photo<br>All soft copy<br>9500 Birr<br>Package is valid Only for 1 month<br>3 hour photo session<br><a class="btn" href="#contactTitle">Book Now</a></div>
-</div>
+<h3>Package 4</h3>
+<div class="details">Full details included... 9500 birr</div>
 </div></div>
 </div><div class="section">
-<h2 id="contactTitle">For More Information</h2>
+<h2 id="contactTitle">Contact</h2>
 <p id="contactInfo">
-<span onclick="openLink('https://www.tiktok.com/@kuruphotography')"><i class="fa-brands fa-tiktok"></i> TikTok: @kuruphotography</span>
-<span onclick="callNow('+251969060708')"><i class="fa-solid fa-phone"></i> Phone: +251969060708</span>
-<span onclick="openLink('https://t.me/Kurustudio')"><i class="fa-brands fa-telegram"></i> Telegram: @Kurustudio</span>
-<span onclick="callNow('+251989136686')"><i class="fa-solid fa-phone"></i> Phone: +251989136686</span>
-<span onclick="openLink('https://t.me/Kurupho')"><i class="fa-brands fa-telegram"></i> Telegram: @Kurupho</span>
+<span onclick="openLink('https://www.tiktok.com/@kuruphotography')"><i class="fa-brands fa-tiktok"></i> TikTok</span>
+<span onclick="callNow('+251969060708')"><i class="fa-solid fa-phone"></i> Call</span>
+<span onclick="openLink('https://t.me/Kurustudio')"><i class="fa-brands fa-telegram"></i> Telegram</span>
 </p>
 </div><script>
-function toggleDetails(el){
- let d=el.querySelector('.details');
- d.style.display=d.style.display==='block'?'none':'block';
-}
-
-function openLink(url){
- window.open(url, '_blank');
-}
-
-function callNow(num){
- window.location.href='tel:'+num;
-}
-
+function toggleDetails(el){let d=el.querySelector('.details');d.style.display=d.style.display==='block'?'none':'block'}
+function openLink(u){window.open(u,'_blank')}
+function callNow(n){window.location.href='tel:'+n}
 let am=false;
-function toggleLang(){
- am=!am;
- if(am){
- document.getElementById('title').innerText='ኩሩ ስቱዲዮ እንኳን ደና መጡ';
- document.getElementById('subtitle').innerText='Welcome';
- document.getElementById('pkgTitle').innerText='ፓኬጆች';
- document.getElementById('contactTitle').innerText='ለበለጠ መረጃ';
- }else{
- document.getElementById('title').innerText='Welcome to Kuru Studio';
- document.getElementById('subtitle').innerText='እንኳን ደና መጡ';
- document.getElementById('pkgTitle').innerText='Packages';
- document.getElementById('contactTitle').innerText='For More Information';
- }
-}
+function toggleLang(){am=!am;
+if(am){title.innerText='ኩሩ ስቱዲዮ';subtitle.innerText='Welcome';pkgTitle.innerText='ፓኬጆች';contactTitle.innerText='ኮንታክት'}
+else{title.innerText='Welcome';subtitle.innerText='እንኳን ደና መጡ';pkgTitle.innerText='Packages';contactTitle.innerText='Contact'}}
 </script></body>
 </html>
